@@ -67,12 +67,15 @@ class CreateUserController {
 					error: badRequest('Registro militar já cadastrado')
 				});
 			}
+			
 			// Criptografar senha
+
 			const passwordHashed = await bcrypt.hash(senha, Number(process.env.SALT));
 			// Criar usuário no banco, formatar dados
 			const user = await UserModel.create({
 				nome,
-				cpf: cpf.replaceAll('.', '').replace('-', ''),
+				cpf,
+				// : cpf.replaceAll('.', '').replace('-', '')
 				email,
 				senha: passwordHashed,
 				dataNascimento: dateFormated,
