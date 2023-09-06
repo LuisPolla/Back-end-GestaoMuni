@@ -74,8 +74,7 @@ class CreateUserController {
 			// Criar usuário no banco, formatar dados
 			const user = await UserModel.create({
 				nome,
-				cpf,
-				// : cpf.replaceAll('.', '').replace('-', '')
+				cpf: cpf.replaceAll('.', '').replace('-', ''),
 				email,
 				senha: passwordHashed,
 				dataNascimento: dateFormated,
