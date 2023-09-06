@@ -11,6 +11,6 @@ server.use(express.json());
 server.use(cors());
 server.use(routes);
 
-server.listen(8080, () => {
+server.listen('https://api-gestaomuni.onrender.com/', () => {
 	console.log('Server started!');
 });
